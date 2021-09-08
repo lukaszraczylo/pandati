@@ -1,0 +1,57 @@
+name: Test, scan, build, release
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+    - '**.md'
+    - 'action.yml'
+    branches:
+      - "master"
+      - "main"
+
+jobs:
+  test-scan-release:
+    name: Test codebase
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+
+      - name: Test codebase
+        run: |
+          make test
+
+      - name: Scan codebase
+        run: |
+          make lint
+
+      - name: Semver run
+        id: semver
+        uses: lukaszraczylo/semver-generator@v1
+        with:
+          config_file: semver.yaml
+          repository_local: true
+
+      - name: Semver check
+        run: |
+          echo "Semantic version detected: ${{ steps.semver.outputs.semantic_version }}"
+
+      - name: Get list of the commits since last release
+        run: |
+          echo "$(git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%h %s")" > .release_notes
+
+      - name: Create Release
+        id: create_release
+        uses: marvinpinto/action-automatic-releases@latest
+        if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: ${{ steps.semver.outputs.semantic_version }}
+          title: version ${{ steps.semver.outputs.semantic_version }}
+          draft: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}

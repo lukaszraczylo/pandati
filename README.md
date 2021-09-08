@@ -1,11 +1,12 @@
 ## Pandati
 
-Your little Golang helpers toolkit
+<p align="center">
+  <img height="300" src="static/pandati.jpg">
+</p>
 
 ### Purpose of the project
 
-Keeping things DRY for your projects. Set of most popular and frequently used helper functions making it easier to focus on the 
-logic you want to implement rather than re-inventing the wheel ( and spending precious time going through StackOverflow ).
+Keeping things DRY for your projects. Set of most popular and frequently used helper functions making it easier to focus on the logic you want to implement rather than re-inventing the wheel ( and spending precious time going through StackOverflow ).
 
 
 ### Available helpers
