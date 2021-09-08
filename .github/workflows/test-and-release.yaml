@@ -13,7 +13,8 @@ on:
 jobs:
   test-scan-release:
     name: Test codebase
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    container: github/super-linter:v3.15.5
     steps:
 
       - name: Checkout repo

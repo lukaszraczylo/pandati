@@ -13,5 +13,5 @@ test: ## Run tests on codebase
 .PHONY: lint
 lint: ## Run linters against codebase
 	go fmt ./...
-	golangci-lint run
+	golangci-lint run ./...
 
