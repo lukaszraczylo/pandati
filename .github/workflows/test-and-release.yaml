@@ -55,4 +55,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: ${{ steps.semver.outputs.semantic_version }}
           title: version ${{ steps.semver.outputs.semantic_version }}
-          draft: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}
+          prerelease: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}
