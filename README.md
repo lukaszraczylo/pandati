@@ -29,6 +29,9 @@ Keeping things DRY for your projects. Set of most popular and frequently used he
 | Errors | `CheckForError(err error, msg ...string) (string)` | Checks for error and returns pre-formatted message with stack trace |
 | Errors | `Trace() string` | Returns a formatted stack trace |
 |  |  |  |
+| Maps   | `FlattenMap(nested map[string]interface{}, opts *FlattenOptions) (m map[string]interface{}, err error)` | Flattens provided map using customisation options |
+| Maps   | `UnflattenMap(flat map[string]interface{}, opts *FlattenOptions) (nested map[string]interface{}, err error)` | Unflattens provided map into nested map using customisation options |
+|  |  |  |
 | Slices | `ExistsInSlice(slice interface{}, value interface{}) bool` | Checks if value exists in slice |
 | Slices | `RemoveFromSlice(slice interface{}, value interface{})` | Removes value from slice |
 | Slices | `RemoveFromSliceByIndex(slice interface{}, index int)` | Removes value from slice by index |

@@ -99,8 +99,8 @@ func flattenmap(prefix string, depth int, nested interface{}, opts *FlattenOptio
 // from = {"foo": "bar"}
 // then, to = {"hi": "there", "foo": "bar"}
 func updatemap(to map[string]interface{}, from map[string]interface{}) {
-	for kt, vt := range from {
-		to[kt] = vt
+	for k, v := range from {
+		to[k] = v
 	}
 }
 
@@ -135,11 +135,8 @@ func UnflattenMap(flat map[string]interface{}, opts *FlattenOptions) (nested map
 func unflattenmap(flat map[string]interface{}, opts *FlattenOptions) (nested map[string]interface{}, err error) {
 	nested = make(map[string]interface{})
 	for k, v := range flat {
-		temp := updateunflattenmap(k, v, opts).(map[string]interface{})
-		err = mergo.Merge(&nested, temp)
-		if err != nil {
-			return
-		}
+		n := updateunflattenmap(k, v, opts)
+		err = mergo.Merge(&nested, n, mergo.WithOverride)
 	}
 	return
 }
