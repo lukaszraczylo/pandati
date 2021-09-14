@@ -3,9 +3,6 @@ name: Test, scan, build, release
 on:
   workflow_dispatch:
   push:
-    paths-ignore:
-    - '**.md'
-    - 'action.yml'
     branches:
       - "master"
       - "main"
