@@ -35,6 +35,7 @@ Keeping things DRY for your projects. Set of most popular and frequently used he
 | Slices | `ExistsInSlice(slice interface{}, value interface{}) bool` | Checks if value exists in slice |
 | Slices | `RemoveFromSlice(slice interface{}, value interface{})` | Removes value from slice |
 | Slices | `RemoveFromSliceByIndex(slice interface{}, index int)` | Removes value from slice by index |
+| Slices | `UniqueSlice (slice interface{}) (uniqueSlice interface{})` | Returns a slice with unique values |
 |  |  |  |
 | Checks | `IsZero(v interface{}) bool` | Checks if value of anything passed is zero / empty / nil |
 
