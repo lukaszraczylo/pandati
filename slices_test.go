@@ -102,3 +102,34 @@ func TestRemoveFromSliceByIndex(t *testing.T) {
 		})
 	}
 }
+
+func TestUniqueSlice(t *testing.T) {
+	type args struct {
+		slice interface{}
+	}
+	tests := []struct {
+		name string
+		args args
+		want interface{}
+	}{
+		{
+			name: "Unique slice of integers",
+			args: args{
+				slice: []int{1, 2, 3, 4, 5, 1, 2, 3, 4, 5},
+			},
+			want: []int{1, 2, 3, 4, 5},
+		},
+		{
+			name: "Unique slice of strings",
+			args: args{
+				slice: []string{"a", "b", "c", "d", "e", "a", "b", "c", "d", "e", "g"},
+			},
+			want: []string{"a", "b", "c", "d", "e", "g"},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			assert.Equal(t, tt.want, UniqueSlice(tt.args.slice))
+		})
+	}
+}
