@@ -76,6 +76,5 @@ func UniqueSlice(slice interface{}) interface{} {
 			sliceCleaned = reflect.Append(sliceCleaned, s.Index(i))
 		}
 	}
-	fmt.Println(sliceCleaned.Interface())
 	return sliceCleaned.Interface()
 }
