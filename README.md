@@ -37,6 +37,8 @@ Keeping things DRY for your projects. Set of most popular and frequently used he
 | Slices | `RemoveFromSliceByIndex(slice interface{}, index int)` | Removes value from slice by index |
 | Slices | `UniqueSlice (slice interface{}) (uniqueSlice interface{})` | Returns a slice with unique values |
 |  |  |  |
+| Structs | `CompareStructsReplacedFields (old interface{}, new interface{}) (changedFields []string)` | Compares two structs and returns a slice of changed fields |
+|  |  |  |
 | Checks | `IsZero(v interface{}) bool` | Checks if value of anything passed is zero / empty / nil |
 
 ### Contributing
