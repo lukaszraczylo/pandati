@@ -1,11 +1,12 @@
 package pandati
 
 import (
+	"math"
 	"reflect"
 )
 
 func isZero(v reflect.Value) bool {
-	if !v.IsValid() {
+	if !v.IsValid() || v.IsZero() {
 		return true
 	}
 
@@ -21,13 +22,10 @@ func isZero(v reflect.Value) bool {
 		return v.Uint() == 0
 
 	case reflect.Float32, reflect.Float64:
-		return v.Float() == 0
+		return math.IsNaN(v.Float()) || math.Abs(v.Float()) < math.SmallestNonzeroFloat64
 
 	case reflect.Complex64, reflect.Complex128:
-		return v.Complex() == 0
-
-	case reflect.Ptr, reflect.Interface:
-		return isZero(v.Elem())
+		return math.IsNaN(real(v.Complex())) || math.IsNaN(imag(v.Complex())) || v.Complex() == 0
 
 	case reflect.Array:
 		for i := 0; i < v.Len(); i++ {
@@ -48,8 +46,16 @@ func isZero(v reflect.Value) bool {
 		}
 		return true
 
+	case reflect.Ptr:
+		// If the value is a pointer, check if it is nil
+		if v.IsNil() {
+			return true
+		}
+		// If it is not nil, check if the pointed-to value is a zero value
+		return isZero(v.Elem())
+
 	default:
-		return v.IsNil()
+		return false
 	}
 }
 
