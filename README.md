@@ -14,6 +14,7 @@
   - [Table of contents](#table-of-contents)
     - [Purpose of the project](#purpose-of-the-project)
     - [Available helpers](#available-helpers)
+      - [Logging](#logging)
     - [Contributing](#contributing)
     - [Name of the project](#name-of-the-project)
 
@@ -40,6 +41,21 @@ Keeping things DRY for your projects. Set of most popular and frequently used he
 | Structs | `CompareStructsReplacedFields (old interface{}, new interface{}) (changedFields []string)` | Compares two structs and returns a slice of changed fields |
 |  |  |  |
 | Checks | `IsZero(v interface{}) bool` | Checks if value of anything passed is zero / empty / nil |
+
+#### Logging
+
+Additional helper for logger setup is available. I've decided to publish it to DRY my own projects.
+The logging itself provides nice, clean and fully customizable json formatted logging which then can be ingested without any further modifications straight into your loki, ELK or any other logging mechanism. It can be used as following.
+
+```go
+import (
+    "github.com/lukaszraczylo/pandati"
+)
+
+func main() {
+    log = logging.NewLogger()
+    log.Critical("Error binding to queue", map[string]interface{}{"_queue": queueName, "_error": err.Error()})
+}```
 
 ### Contributing
 
