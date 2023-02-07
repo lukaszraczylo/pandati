@@ -53,9 +53,10 @@ import (
 )
 
 func main() {
-    log = logging.NewLogger()
+    log = pandati.NewLogger()
     log.Critical("Error binding to queue", map[string]interface{}{"_queue": queueName, "_error": err.Error()})
-}```
+}
+```
 
 ### Contributing
 
