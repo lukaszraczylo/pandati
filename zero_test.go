@@ -65,8 +65,8 @@ func TestIsZero(t *testing.T) {
 		v interface{}
 	}
 	tests := []struct {
-		name string
 		args args
+		name string
 		want bool
 	}{
 		{

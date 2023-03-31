@@ -7,9 +7,9 @@ import (
 )
 
 type CompareStructReplacedResult struct {
-	Key      string
 	Value    interface{}
 	OldValue interface{}
+	Key      string
 }
 
 // CompareStructReplaced compares two structs after converting them into json

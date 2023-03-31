@@ -12,9 +12,9 @@ func Test_ComapreStructsReturnDiff(t *testing.T) {
 		b interface{}
 	}
 	tests := []struct {
-		name     string
 		args     args
 		wantDiff map[string]interface{}
+		name     string
 	}{
 		{
 			name: "Identical structs",

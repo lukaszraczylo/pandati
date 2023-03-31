@@ -12,9 +12,9 @@ func TestFlatMap(t *testing.T) {
 		opts   *FlattenOptions
 	}
 	tests := []struct {
-		name    string
 		args    args
 		wantM   map[string]interface{}
+		name    string
 		wantErr bool
 	}{
 		{
@@ -49,15 +49,15 @@ func TestFlatMap(t *testing.T) {
 
 func Test_flattenmap(t *testing.T) {
 	type args struct {
-		prefix string
-		depth  int
 		nested interface{}
 		opts   *FlattenOptions
+		prefix string
+		depth  int
 	}
 	tests := []struct {
-		name        string
 		args        args
 		wantFlatmap map[string]interface{}
+		name        string
 		wantErr     bool
 	}{
 		{
@@ -98,9 +98,9 @@ func Test_updatemap(t *testing.T) {
 		from map[string]interface{}
 	}
 	tests := []struct {
-		name   string
 		args   args
 		result map[string]interface{}
+		name   string
 	}{
 		{
 			name: "updating nested map",
@@ -132,9 +132,9 @@ func TestUnflattenMap(t *testing.T) {
 		opts *FlattenOptions
 	}
 	tests := []struct {
-		name       string
 		args       args
 		wantNested map[string]interface{}
+		name       string
 		wantErr    bool
 	}{
 		{

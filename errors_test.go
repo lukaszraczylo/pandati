@@ -14,8 +14,8 @@ func TestCheckForError(t *testing.T) {
 	}
 	tests := []struct {
 		name         string
-		args         args
 		wantToReturn string
+		args         args
 	}{
 		{
 			name: "Test no error",

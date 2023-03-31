@@ -12,8 +12,8 @@ func TestExistsInSlice(t *testing.T) {
 		item  interface{}
 	}
 	tests := []struct {
-		name string
 		args args
+		name string
 		want bool
 	}{
 		{
@@ -47,9 +47,9 @@ func TestRemoveFromSlice(t *testing.T) {
 		value interface{}
 	}
 	tests := []struct {
-		name string
 		args args
 		want interface{}
+		name string
 	}{
 		{
 			name: "Remove integer from slice",
@@ -82,9 +82,9 @@ func TestRemoveFromSliceByIndex(t *testing.T) {
 		index int
 	}
 	tests := []struct {
-		name  string
-		args  args
 		wants interface{}
+		args  args
+		name  string
 	}{
 		{
 			name: "Remove value with index 3 from slice",
@@ -108,9 +108,9 @@ func TestUniqueSlice(t *testing.T) {
 		slice interface{}
 	}
 	tests := []struct {
-		name string
 		args args
 		want interface{}
+		name string
 	}{
 		{
 			name: "Unique slice of integers",
