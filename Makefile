@@ -18,4 +18,4 @@ lint: ## Run linters against codebase
 .PHONY: update
 update: ## Update dependencies
 	go get -u ./...
-	go mod tidy -compat=1.19
+	go mod tidy -compat=1.20

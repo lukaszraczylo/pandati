@@ -17,19 +17,19 @@ type FlattenOptions struct {
 // Returns flat map from the provided nested map[string]interface{}
 // For example:
 //
-// 		nested := map[string]interface{}{
-// 			"a": map[string]interface{}{
-// 				"b": map[string]interface{}{
-// 					"c": "d",
-// 				},
-// 			},
-// 		}
+//	nested := map[string]interface{}{
+//		"a": map[string]interface{}{
+//			"b": map[string]interface{}{
+//				"c": "d",
+//			},
+//		},
+//	}
 //
-// 		flat := FlattenMap(nested)
+//	flat := FlattenMap(nested)
 //
-// 		flat equals to map[string]interface{}{
-// 			"a.b.c": "d",
-// 		}
+//	flat equals to map[string]interface{}{
+//		"a.b.c": "d",
+//	}
 func FlattenMap(nested map[string]interface{}, opts *FlattenOptions) (m map[string]interface{}, err error) {
 	if opts == nil {
 		opts = &FlattenOptions{
@@ -109,19 +109,19 @@ func updatemap(to map[string]interface{}, from map[string]interface{}) {
 //
 // Example:
 //
-// 		flat := map[string]interface{}{
-// 			"a.b.c": "d",
-// 		}
+//	flat := map[string]interface{}{
+//		"a.b.c": "d",
+//	}
 //
-// 		nested := UnflattenMap(flat)
+//	nested := UnflattenMap(flat)
 //
-// 		nested equals to map[string]interface{}{
-// 			"a": map[string]interface{}{
-// 				"b": map[string]interface{}{
-// 					"c": "d",
-// 				},
-// 			},
-// 		}
+//	nested equals to map[string]interface{}{
+//		"a": map[string]interface{}{
+//			"b": map[string]interface{}{
+//				"c": "d",
+//			},
+//		},
+//	}
 func UnflattenMap(flat map[string]interface{}, opts *FlattenOptions) (nested map[string]interface{}, err error) {
 	if opts == nil {
 		opts = &FlattenOptions{
