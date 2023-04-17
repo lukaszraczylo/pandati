@@ -41,6 +41,10 @@ Keeping things DRY for your projects. Set of most popular and frequently used he
 | Structs | `CompareStructsReplacedFields (old interface{}, new interface{}) (changedFields []string)` | Compares two structs and returns a slice of changed fields |
 |  |  |  |
 | Checks | `IsZero(v interface{}) bool` | Checks if value of anything passed is zero / empty / nil |
+|  |  |  |
+| Conversion | `StringToBytes(s string) []byte` | Converts string to byte without unnecessary allocations |
+| Conversion | `BytesToString(b []byte) string` | Converts byte to string without unnecessary allocations |
+| Conversion | `ConvertReplyType[T any](desiredType T, reply []byte) T` | Converts any []byte into desired type |
 
 #### Logging
 
