@@ -8,6 +8,9 @@ var zeroStructMap = make(map[reflect.Type]interface{})
 
 func IsZero[T any](v T) bool {
 	value := reflect.ValueOf(v)
+	if !value.IsValid() {
+		return true
+	}
 	if value.Kind() == reflect.Ptr && value.IsNil() {
 		return true
 	}
