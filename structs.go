@@ -29,7 +29,7 @@ func CompareStructsReplaced(a, b interface{}) ([]CompareStructReplacedResult, bo
 		return res, false, err
 	}
 
-	diffTotal, err := jsondiff.CompareJSONOpts(aJson, bJson, jsondiff.Invertible())
+	diffTotal, err := jsondiff.CompareJSON(aJson, bJson, jsondiff.Invertible())
 	if err != nil {
 		return nil, false, err
 	}
@@ -46,7 +46,7 @@ func CompareStructsReplaced(a, b interface{}) ([]CompareStructReplacedResult, bo
 				}
 			} else {
 				res = append(res, CompareStructReplacedResult{
-					Key:      diff.Path.String(),
+					Key:      diff.Path,
 					Value:    diff.Value,
 					OldValue: diff.OldValue,
 				})
