@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/imdario/mergo"
+	"dario.cat/mergo"
 )
 
 type FlattenOptions struct {
